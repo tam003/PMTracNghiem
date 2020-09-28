@@ -1,0 +1,30 @@
+CREATE DATABASE PMTracNghiem
+GO
+
+USE PMTracNghiem
+GO
+
+CREATE TABLE BaiThi
+(
+	idBaiThi INT IDENTITY PRIMARY KEY,
+	TenBaiThi NVARCHAR(100),
+	TacGia NVARCHAR(100),
+	ThoiGian INT
+)
+GO
+
+CREATE TABLE CauHoi
+(
+	idCauHoi INT,
+	idBaiThi INT REFERENCES dbo.BaiThi(idBaiThi),
+	NoiDung NVARCHAR(100),
+	CauA NVARCHAR(100),
+	CauB NVARCHAR(100),
+	CauC NVARCHAR(100),
+	CauD NVARCHAR(100),
+	DapAn VarChar(1),
+	HinhAnh VARCHAR(100)
+)
+GO
+
+SELECT * FROM dbo.BaiThi
